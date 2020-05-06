@@ -211,7 +211,7 @@ Hero Component
     justify-items: center;
     margin: 0;
     min-height: 15rem;
-    padding: 2rem;
+    padding: .5rem 2rem;
     text-shadow: 2px 2px white;
 }
 
@@ -222,6 +222,7 @@ Hero Component
 .hero-element h1 {
     grid-row-start: 2;
     margin-bottom: -1.75rem;
+    font-size: 1.25rem;
 }
 
 .call-to-button {
@@ -231,7 +232,7 @@ Hero Component
     margin-bottom: 1.5rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 650px) {
 
     .hero-element{
         min-height: 40vh;
