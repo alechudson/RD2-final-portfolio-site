@@ -10,6 +10,12 @@ img {
     max-width: 100%;
 }
 
+main {
+    margin: auto;
+    max-width: 35rem;
+    padding: 2rem;
+}
+
 /*////////////////////////
 Typography
 ////////////////////////*/
@@ -39,7 +45,6 @@ h1 {
 
 h2 {
     font-family: var(--font-secondary);
-    margin-top: 3rem;
 }
 
 h3 {
@@ -62,12 +67,6 @@ p {
     font-family: var(--font-primary)
 }
 
-section {
-    margin: 2rem auto;
-    max-width: 35rem;
-    padding: 2rem;
-}
-
 .featured-text {
     font-style: italic;
     font-size: var(--size-one);
@@ -79,6 +78,15 @@ section {
     font-size: var(--size-logo);
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.about {
+    margin-top: 3rem;
+    max-width: 35rem;
+}
+
+.heading-emphasis {
+    color: var(--color-third-dark);
 }
 
 /*////////////////////////
@@ -98,12 +106,12 @@ a:visited {
 
 a:hover, a:focus {
     color: var(--color-third-light);
+    transition: .15s ease;
 }
 
 a:active {
-    text-decoration: underline;
+    text-decoration: none;
 }
-
 
 .call-to-button a, .call-to-button a:visited {
     background-color: var(--color-secondary);
@@ -113,6 +121,16 @@ a:active {
 
 .call-to-button a:hover, .call-to-button a:focus, .call-to-button a:active {
     background-color: var(--color-third-light);
+    animation: .25s ease-out;
+}
+
+header nav ul li a:hover, header nav ul li a:focus, header nav ul li a:active {
+    border: .15rem solid var(--color-third-light);
+}
+
+span {
+    font-family: var(--font-secondary);
+    font-weight: 700;
 }
 
 /*////////////////////////
@@ -122,8 +140,8 @@ Color
 html {
 
     --color-primary: #11D9A0;
-    --color-primary-dark: #0FBF8D;
-    --color-primary-darker: #0A5951;
+    --color-primary-dark: #0DB082;
+    --color-primary-darker: #0B8E69;
 
     --color-secondary: #F22756;
     --color-secondary-light: #F55479;
@@ -148,7 +166,10 @@ Header & Footer Components
 header, footer{
     background-color: var(--base-color);
     text-align: center;
-    padding: 1rem;
+}
+
+header nav {
+    padding: 0 0 1rem;
 }
 
 nav ul {
@@ -172,6 +193,7 @@ header nav ul li a {
 
 footer {
     margin-top: 1rem;
+    padding: 1rem;
 }
 
 footer nav ul li {
@@ -201,18 +223,18 @@ Hero Component
 
 .hero-element {
     align-items: center;
-    background-image: url(images/test.gif);
+    background-image: url(images/slideshow.gif);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: grid;
+    color: white;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
     justify-items: center;
     margin: 0;
     min-height: 15rem;
     padding: .5rem 2rem;
-    text-shadow: 2px 2px white;
 }
 
 .hero-element h1, .hero-element p {
@@ -220,9 +242,11 @@ Hero Component
 }
 
 .hero-element h1 {
+    background-color: var(--color-primary-darker);
+    font-size: 1.25rem;
     grid-row-start: 2;
     margin-bottom: -1.75rem;
-    font-size: 1.25rem;
+    padding: 0 .5rem;
 }
 
 .call-to-button {
@@ -239,7 +263,7 @@ Hero Component
     }
 
     .hero-element h1{
-        font-size: var(--size-logo);
+        font-size: var(--size-six);
     }
 
     .call-to-button {
@@ -265,4 +289,165 @@ Layout
     display: block;
     margin: 1rem auto;
     max-width: 15rem;
+}
+
+/*////////////////////////
+Projects
+////////////////////////*/
+
+.cards {max-width: 20rem;}
+
+.card-container {
+    display: grid;
+    margin: auto;
+    grid-gap: 1rem;
+}
+
+.card-container div {
+    margin: 1rem;
+}
+
+.project-card {
+    border:.25rem solid var(--color-primary);
+    color: var(--base-color);
+    padding: 1rem;
+}
+
+.project-card img {
+    box-shadow: .25rem .25rem var(--color-primary-dark);
+}
+
+.project-card h2 {
+    text-align: center;
+    text-decoration: und;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+.project-card:visited {
+    color: var(--base-color);
+}
+
+.project-card:hover, .project-card:focus {
+    color: var(--base-color);
+    transition: .15s ease-in-out;
+    border: .25rem solid var(--base-color);
+}
+
+.project-card img:hover, .project-card img:active {
+    box-shadow: .25rem .25rem var(--base-color);
+    transition: .25s ease-in-out;
+}
+
+@media (min-width: 900px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards {
+        max-width: 45rem;
+    }
+}
+
+.photo-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem
+}
+
+.image-project {
+    display: flex;
+    justify-content: center;
+}
+
+article img {
+    margin-top: 1rem;
+}
+
+@media (min-width: 1200px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+        justify-items: center;
+    }
+    .cards {
+        max-width: 70rem;
+    }
+}
+
+/*////////////////////////
+Contact
+////////////////////////*/
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 25rem;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+[type="text"], [type="email"], textarea {
+    padding: .25rem;
+    border: .15rem solid var(--base-color);
+}
+
+.form-contact textarea {
+    min-height: 5rem;
+    padding: .25rem;
+}
+
+[type="submit"] {
+    border: .25rem solid var(--color-primary);
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    margin: 1rem;
+    padding: .5rem;
+}
+
+label {
+    margin-top: 1rem;
+}
+
+
+
+[type="submit"]:hover, [type="submit"]:focus {
+    animation: sink-down .5s ease;
+}
+
+[type="submit"]:active {
+    background-color: var(--color-third);
+    border: .25rem solid var(--color-third);
+    transition: .25s ease;
+}
+
+@keyframes sink-down {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+
+
+    }
+
+    50% {
+        transform: scale(1.05);
+        background: var(--color-primary);
+        
+    }
+
+    75% {
+        
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
 }
